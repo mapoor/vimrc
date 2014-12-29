@@ -1,0 +1,127 @@
+"设置默认主题色20110708
+colorscheme murphy
+set nobackup
+set nu
+set wrap
+
+"设置mapleader键
+let mapleader = ','
+let g:EasyMotion_leader_key = 'f'
+filetype plugin on
+set nocompatible "不要vim模仿vi模式，建议设置，否则会有很多不兼容的问题
+syntax on "打开高亮
+
+"设置一个tab等于4个空格
+set tabstop=4
+set shiftwidth=4
+set sts=4
+set expandtab
+"setlocal shiftwidth=4
+
+set nowrap "不自动换行
+set hlsearch "高亮显示结果
+set incsearch "在输入要搜索的文字时，vim会实时匹配
+set backspace=indent,eol,start whichwrap+=<,>,[,] "允许退格键的使用
+
+"窗口转换快捷键
+map <c-j> <c-w>j
+map <c-k> <c-w>k
+map <c-l> <c-w>l
+map <c-h> <c-w>h
+
+""minibufexpl设置
+let g:miniBufExplSplitBelow = 0/1
+let g:miniBufExplorerMoreThanOne = 1
+let g:miniBufExplMapWindowNavVim = 1 
+let g:miniBufExplMapWindowNavArrows = 1 
+let g:miniBufExplMapCTabSwitchBufs = 1 
+let g:miniBufExplModSelTarget = 1
+
+
+""字体的设置
+set guifont=Bitstream_Vera_Sans_Mono:h10:cANSI "记住空格用下划线代替哦
+set gfw=幼圆:h11:cGB2312 
+set fileencodings=utf-8,gb2312,gbk,gb18030
+
+"进行Tlist的设置
+""TlistUpdate可以更新tags
+map <F4> :silent! NERDTree %:p:h<CR> "呼出NerdTree
+map <F3> :silent! Tlist<CR> "按下F3就可以呼出了
+let Tlist_Ctags_Cmd='ctags' "因为我们放在环境变量里，所以可以直接执行
+let Tlist_Use_Right_Window=1 "让窗口显示在右边，0的话就是显示在左边
+let Tlist_Show_One_File=0 "让taglist可以同时展示多个文件的函数列表，如果想只有1个，设置为1
+let Tlist_File_Fold_Auto_Close=1 "非当前文件，函数列表折叠隐藏
+let Tlist_Exit_OnlyWindow=1 "当taglist是最后一个分割窗口时，自动推出vim
+"是否一直处理tags.1:处理;0:不处理
+let Tlist_Process_File_Always=0 "不是一直实时更新tags，因为没有必要
+let Tlist_Inc_Winwidth=0 
+
+"grep设置
+nnoremap <silent> <F2> :Grep<CR>
+
+""tagbar设置
+nmap <F5> :TagbarToggle<CR> 
+
+"zencoding
+let g:user_zen_leader_key = '<c-e>'
+let g:use_zen_complete_tag = 1
+
+"bundles 配置 
+filetype off                   " required!
+set rtp+=~/.vim/vundle.git/
+call vundle#rc()
+"
+"" let Vundle manage Vundle
+" required! 
+Bundle 'gmarik/vundle'
+
+" My Bundles here:
+"
+""original repos on github
+" Bundle 'tpope/vim-fugitive'
+" Bundle 'Lokaltog/vim-easymotion'
+" Bundle 'rstacruz/sparkup', {'rtp': 'vim'}
+" Bundle 'tpope/vim-rails.git'
+
+""vim-scripts repos
+" Bundle 'L9'
+Bundle 'bufexplorer.zip'
+Bundle 'minibufexpl.vim'
+Bundle 'The-NERD-tree'
+Bundle 'vimwiki'
+Bundle 'grep.vim'
+Bundle 'Shougo/neocomplcache'
+Bundle 'Shougo/neosnippet'
+Bundle 'Shougo/neosnippet-snippets'
+Bundle 'ZenCoding.vim'
+Bundle 'snipMate'
+Bundle 'Tagbar'
+Bundle 'taglist.vim'
+Bundle 'surround.vim'
+Bundle 'EasyMotion'
+Bundle 'AutoClose'
+Bundle 'ShowTrailingWhitespace'
+Bundle 'kien/ctrlp.vim'
+Bundle 'scrooloose/nerdcommenter'
+Bundle 'Rykka/riv.vim'
+Bundle 'c.vim'
+
+""non github repos
+" Bundle 'git://git.wincent.com/command-t.git'
+""git repos on your local machine (ie. when working on your own plugin)
+" Bundle 'file:///Users/gmarik/path/to/plugin'
+" ...
+
+filetype plugin indent on     " required!
+"
+" Brief help
+" :BundleList          - list configured bundles
+" :BundleInstall(!)    - install(update) bundles
+" :BundleSearch(!) foo - search(or refresh cache first) for foo
+" :BundleClean(!)      - confirm(or auto-approve) removal of unused bundles
+"
+" see :h vundle for more details or wiki for FAQ
+" NOTE: comments after Bundle command are not allowed..
+
+
+
